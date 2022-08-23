@@ -3,7 +3,7 @@ A recreation of the first AI (Perceptron) written in C#
 
 Basically, Perceptron is an articial inteligence created with the intent of being able to diffentiate between two types of images,
 in my program's case it differentiates between cricles and rectangles by creating two sets of images, one for training and
-another one for testing, both sets contain mixed images of circles and rectangles, that in my code are named 'Layer's. For more details
+another one for testing, both sets contain mixed images of circles and rectangles, that in my code are named `Layer's`. For more details
 about how training and testing works I recommend seeing the links in the bottom of the readme.
 
 Something interesting about Perceptron is that you can visualize the way it differentiates two types of images with an image,
