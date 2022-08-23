@@ -14,7 +14,6 @@
 
             List<Layer> test_layers = new List<Layer>();
             List<Layer> train_layers = new List<Layer>();
-            Ai ai;
 
             Console.WriteLine("[INFO] Started generating images");
             for (int i = 0; i < imgAmount; ++i) {
@@ -23,7 +22,7 @@
             }
             Console.WriteLine("[INFO] Finished generating images");
 
-            ai = new Ai(10f, imgWidth, imgHeight);
+            var ai = new Ai(10f, imgWidth, imgHeight);
             ai.Train(train_layers);
             ai.Weights.WriteTo(weightsFilepath);
 
