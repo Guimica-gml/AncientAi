@@ -193,7 +193,7 @@
         }
 
         public static Layer RandomCircle(int width, int height) {
-            bool inside_circle(int x, int y, int cx, int cy, int cr) {
+            bool InsideCircle(int x, int y, int cx, int cy, int cr) {
                 return (Math.Pow(x - cx, 2) + Math.Pow(y - cy, 2) <= Math.Pow(cr, 2));
             }
 
@@ -205,14 +205,14 @@
             var cy = random.Next(3, height - 3);
 
             var maxRadius = Math.Min(cx, cy);
-            maxRadius = Math.Min(maxRadius, width - 1 - cx);
-            maxRadius = Math.Min(maxRadius, height - 1 - cy);
+            maxRadius = Math.Min(maxRadius, width - cx - 1);
+            maxRadius = Math.Min(maxRadius, height - cy - 1);
 
             var radius = random.Next(2, maxRadius);
 
             for (int y = 0; y < height; ++y) {
                 for (int x = 0; x < width; ++x) {
-                    if (inside_circle(x, y, cx, cy, radius)) {
+                    if (InsideCircle(x, y, cx, cy, radius)) {
                         layer.Values[y, x] = 1f;
                     }
                 }
@@ -222,7 +222,7 @@
         }
 
         public static Layer RandomRect(int width, int height) {
-            bool inside_rect(int x, int y, int rx, int ry, int rw, int rh) {
+            bool InsideRect(int x, int y, int rx, int ry, int rw, int rh) {
                 return (x >= rx && x <= rx + rw && y >= ry && y <= ry + rh);
             }
 
@@ -237,7 +237,7 @@
 
             for (int y = 0; y < height; ++y) {
                 for (int x = 0; x < width; ++x) {
-                    if (inside_rect(x, y, rx, ry, rw, rh)) {
+                    if (InsideRect(x, y, rx, ry, rw, rh)) {
                         layer.Values[y, x] = 1f;
                     }
                 }
